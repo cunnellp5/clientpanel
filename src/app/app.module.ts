@@ -2,6 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { environment } from '../environments/environment';
+
 
 import { AppComponent } from './app.component';
 import { DashboaardComponent } from './commponents/dashboaard/dashboaard.component';
@@ -16,10 +22,11 @@ import { RegisterComponent } from './commponents/register/register.component';
 import { SettingsComponent } from './commponents/settings/settings.component';
 import { PageNotFoundComponent } from './commponents/page-not-found/page-not-found.component';
 
+import { ClientService } from './services/client.service';
 
 const appRoutes: Routes = [
-  { path: '', component: DashboaardComponent }
-  { path: 'register', component: RegisterComponent }
+  { path: '', component: DashboaardComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent }
 ];
 
@@ -40,9 +47,15 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(environment.firebase, 'clientpanel'),
+    AngularFireAuthModule
   ],
-  providers: [],
+  providers: [
+    AngularFireDatabase,
+    AngularFireDatabaseModule,
+    ClientService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

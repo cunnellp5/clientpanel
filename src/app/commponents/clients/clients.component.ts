@@ -22,9 +22,9 @@ export class ClientsComponent implements OnInit {
 
   getTotalOwed() {
     let total = 0;
-    total = this.clients.reduce((prev, current) => {
-      return +prev.balance + +current.balance;
-    });
+    for (let i = 0; i < this.clients.length; i++) {
+      total += Number(this.clients[i].balance);
+    }
     return this.totalOwed = total;
   }
 }

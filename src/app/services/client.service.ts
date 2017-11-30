@@ -26,4 +26,9 @@ export class ClientService {
     this.clientsRef.push(client);
   }
 
+  getClient(id: string){
+    this.client = this.db.object('/clients/'+id).valueChanges();
+    return this.client;
+  }
+
 }

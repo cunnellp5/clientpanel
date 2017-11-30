@@ -30,7 +30,6 @@ export class AddClientComponent implements OnInit {
   }
 
   onSubmit({ value, valid }: { value: Client, valid: boolean }) {
-
     if (this.disableBalanceOnAdd) {
       value.balance = 0;
     }

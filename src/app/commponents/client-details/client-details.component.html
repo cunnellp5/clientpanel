@@ -7,8 +7,8 @@
   </div>
   <div class="col-md-6">
     <div class="btn-group pull-right">
-      <a routerLink="['/edit-client/'+id]" class="btn btn-dark">Edit</a>
-      <button (click)="onDeleteClick" class="btn btn-danger">Delete</button>
+      <a [routerLink]="['/edit-client/'+id]" class="btn btn-dark">Edit</a>
+      <button (click)="onDeleteClick()" class="btn btn-danger">Delete</button>
     </div>
   </div>
 </div>

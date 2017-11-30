@@ -32,6 +32,7 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'add-client', component: AddClientComponent },
   { path: 'client/:id', component: ClientDetailsComponent},
+  { path: 'edit-client/:id', component: EditClientComponent},
 ];
 
 @NgModule({

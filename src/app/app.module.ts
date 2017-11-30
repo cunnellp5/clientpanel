@@ -25,6 +25,7 @@ import { SettingsComponent } from './commponents/settings/settings.component';
 import { PageNotFoundComponent } from './commponents/page-not-found/page-not-found.component';
 
 import { ClientService } from './services/client.service';
+import { AuthService } from './services/auth.service';
 
 const appRoutes: Routes = [
   { path: '', component: DashboaardComponent },
@@ -61,7 +62,8 @@ const appRoutes: Routes = [
   providers: [
     AngularFireDatabase,
     AngularFireDatabaseModule,
-    ClientService
+    ClientService,
+    AuthService,
   ],
   bootstrap: [AppComponent]
 })
